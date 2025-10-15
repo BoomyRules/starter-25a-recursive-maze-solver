@@ -5,13 +5,13 @@
 
 std::vector<std::pair<unsigned int, unsigned int>> SolveMaze(
     const std::vector<std::vector<char>>& maze,
-    unsigned int start_x,
-    unsigned int start_y);
+    unsigned int start_row,
+    unsigned int start_col);
 
 bool SolveMazeRecursive(
     const std::vector<std::vector<char>>& maze,
-    unsigned int x,
-    unsigned int y,
+    unsigned int row,
+    unsigned int col,
     std::vector<std::pair<unsigned int, unsigned int>>& path,
     std::vector<std::vector<bool>>& visited);
 

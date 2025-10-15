@@ -18,11 +18,11 @@ int main() {
                                          {'#', '#', '#', '#', '#'}};
 
   // Starting position: (1, 1)
-  unsigned int start_x = 1;
-  unsigned int start_y = 1;
+  unsigned int start_row = 1;
+  unsigned int start_col = 1;
 
   // Solve the maze
-  auto solution_path = SolveMaze(maze, start_x, start_y);
+  auto solution_path = SolveMaze(maze, start_row, start_col);
 
   // Print the solution path directly in main()
   if (!solution_path.empty()) {
