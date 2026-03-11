@@ -1,6 +1,5 @@
 #include "solution.hpp"
 
-// helpers //
 bool TryMove(const std::vector<std::vector<char>>& maze,
              int next_row,
              int next_col,
