@@ -6,8 +6,9 @@ bool TryMove(const std::vector<std::vector<char>>& maze,
              int next_col,
              std::vector<std::pair<unsigned int, unsigned int>>& path,
              std::vector<std::vector<bool>>& visited) {
-  if (next_row < 0 || next_col < 0 || next_row >= maze.size() ||
-      next_col >= maze[0].size()) {
+  if (next_row < 0 || next_col < 0 ||
+      next_row >= static_cast<int>(maze.size()) ||
+      next_col >= static_cast<int>(maze[0].size())) {
     return false;
   }
 
@@ -47,18 +48,12 @@ bool SolveMazeRecursive(
     unsigned int col,
     std::vector<std::pair<unsigned int, unsigned int>>& path,
     std::vector<std::vector<bool>>& visited) {
-  // Mark visited //
   visited[row][col] = true;
-
-  // Add to path //
   path.push_back({row, col});
 
-  // Check if exit //
   if (maze[row][col] == 'X') {
     return true;
   }
-
-  // South Check //
   if (TryMove(maze,
               static_cast<int>(row) + 1,
               static_cast<int>(col),
@@ -66,8 +61,6 @@ bool SolveMazeRecursive(
               visited)) {
     return true;
   }
-
-  // North Check //
   if (TryMove(maze,
               static_cast<int>(row) - 1,
               static_cast<int>(col),
@@ -75,8 +68,6 @@ bool SolveMazeRecursive(
               visited)) {
     return true;
   }
-
-  // East Check //
   if (TryMove(maze,
               static_cast<int>(row),
               static_cast<int>(col) + 1,
@@ -84,8 +75,6 @@ bool SolveMazeRecursive(
               visited)) {
     return true;
   }
-
-  // West Check //
   if (TryMove(maze,
               static_cast<int>(row),
               static_cast<int>(col) - 1,
@@ -94,7 +83,6 @@ bool SolveMazeRecursive(
     return true;
   }
 
-  // remove dead ends before returning false //
   path.pop_back();
   return false;
 }
