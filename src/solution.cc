@@ -53,32 +53,20 @@ bool SolveMazeRecursive(
   if (maze[row][col] == 'X') {
     return true;
   }
-  if (TryMove(maze,
-              static_cast<int>(row) + 1,
-              static_cast<int>(col),
-              path,
-              visited)) {
+
+  int row_i = static_cast<int>(row);
+  int col_i = static_cast<int>(col);
+
+  if (TryMove(maze, row_i + 1, col_i, path, visited)) {
     return true;
   }
-  if (TryMove(maze,
-              static_cast<int>(row) - 1,
-              static_cast<int>(col),
-              path,
-              visited)) {
+  if (TryMove(maze, row_i - 1, col_i, path, visited)) {
     return true;
   }
-  if (TryMove(maze,
-              static_cast<int>(row),
-              static_cast<int>(col) + 1,
-              path,
-              visited)) {
+  if (TryMove(maze, row_i, col_i + 1, path, visited)) {
     return true;
   }
-  if (TryMove(maze,
-              static_cast<int>(row),
-              static_cast<int>(col) - 1,
-              path,
-              visited)) {
+  if (TryMove(maze, row_i, col_i - 1, path, visited)) {
     return true;
   }
 
